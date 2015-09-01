@@ -1,61 +1,88 @@
-You can download the Go tools package installer or the archive from: https://golang.org/dl/
+## Prerequisites
 
-If you download the archive:
+In terms of installation-pain, Go is sort of middle-of-the-road when compared to other programming languages.
+It's not the hardest to install, but it's not the easiest either. And if you're an experienced programmer, you'll
+definitely find it a bit strange.
 
-Extract into /usr/local
+The biggest characteristic of developing with Go is it's use of the [`GOPATH`](https://golang.org/doc/code.html#GOPATH) environment variable. It specifies the location of your workspace and is likely to be the only environment variable you need to configure before developing Go code. All Go programs you create will be located in a child directory of of `GOPATH`. 
 
-Add Go PATH to your system profile:
+Here is an example of how all Go code is organized under `GOPATH`:
 
-export PATH=$PATH:/usr/local/go/bin
+```
+$GOPATH
+├── bin
+├── pkg
+└── src
+    ├── github.com
+    │   └── tools
+    │       └── godep    
+    ├── google.golang.org
+    │   └── cloud
+    │       └── bigtable
+    ├── gopkg.in
+    │   └── tomb.v2
+    └── launchpad.net
+        └── gozk
+            └── zookeeper
+```
 
-If you want to install the Go tools into a different location you can set a GOROOT env variable to point to that directory
+So, you will need to set `GOPATH` to a directory of your choosing:
 
-Add GOROOT to your .bash_profile or .profile:
+```
+$ mkdir $HOME/gopath
+$ export GOPATH=$HOME/gopath
+```
 
-export GOROOT=$HOME/go
-export PATH=$PATH:$GOROOT/bin
+When working with Go tools, sometimes executables will be installed to your workspace's `bin` directory. To make it easier to work with these installed tools, add the workspace's bin subdirectory to your PATH:
 
-If you download the package installer:
+```
+$ export PATH=$PATH:$GOPATH/bin
+```
 
-Open the installer and install the tools. 
+Now you can install Go and get moving right away!
 
-Mac OS X:
+## Installing Go on any Platform
 
-The installer will install go to /usr/local/go and will put the directory (/usr/local/go/bin) into your PATH env variable.
+For the most current and up-to-date installation instructions, visit [https://golang.org/doc/install#install](https://golang.org/doc/install#install). There you will find instructions and downloads for Windows, OSX, and Linux.
 
-Test that you've installed Go correctly and run your first "Hello, Word." program:
+## Installing Go with Homebrew on OSX
 
-Create a new directory and set up a workspace:
+[Homebrew](http://brew.sh/) is a popular package manager for OSX that lets you install things via the command line. If you use OSX and Homebrew you can simply run:
 
-Set a GOPATH env variable in your .bash_profile or .profile: 
+```
+$ brew install go
+```
 
-$ export GOPATH=$HOME/workspace
+## Create your First Go Program
 
-Create your first Go program:
+1. Create the directory `$GOPATH/src/github.com/<your github username>/hello`
+1. Change directory into `hello`
 
-Make the directories src/github.com/(your github username)/hello inside your workspace directory.
-While inside the hello directory create a file named hello.go and add:
+1. Create a file called `hello.go` that looks like this:
 
-package main
+  ```go
+  package main
 
-import "fmt"
+  import "fmt"
 
-func main() {
-    fmt.Printf("hello, world\n")
-}
+  func main() {
+      fmt.Println("Hello, Gopher!")
+  }
+  ```
 
-Compile your first Go program:
+1. Now run the app in development mode with `$ go run hello.go`
+  * Or, install the app as an executable and run it:
 
-$ go install github.com/(your github username)/hello
+    ```
+    $ go install hello.go
+    $ $GOPATH/bin/hello
+    ```
+  * Or, build the app in the current directory and run it:
 
-Run your first Go program:
-
-After compiling the program an executable will be inside the bin directory of the workspace:
-$HOME/workspace/github.com/(your github username)/bin or $GOPATH/bin
-
-To run the program run:
-
-$ $GOPATH/bin/hello
+    ```
+    $ go build hello.go
+    $ ./hello
+    ```
 
 
 
