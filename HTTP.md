@@ -19,7 +19,7 @@ func main() {
 	http.ListenAndServe(":7000", nil)
 }
 ```
-Now in your command line execute `go run webserver.go` and then open `http://localhost:6000` in your browser and you should see "My first Go webpage!"
+Now in your command line execute `go run webserver.go` and then open `http://localhost:7000` in your browser and you should see "My first Go webpage!"
 
 Congrats! You just built a simple web server in Go!
 
