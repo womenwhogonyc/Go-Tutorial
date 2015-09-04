@@ -1,6 +1,6 @@
 _Do not communicate by sharing memory; instead, share memory by communicating._
 
-One of the best aspects about Go is concurrency! 
+One of the best aspects of the language Go is the ability to easily create concurrent programs! 
 
 ## Goroutines
 
@@ -19,7 +19,6 @@ func printWord(s string) {
 	fmt.Println(s)
 }
 ```
-
 
 ## Channels
 
