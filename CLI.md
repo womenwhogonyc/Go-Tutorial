@@ -17,7 +17,7 @@ func main() {
 	}
 ```
 
-Okay now let's save an input from the command line. First we want to create a variable to assign the command line input to. Let's call the variable `input` and make it a string.
+Okay now let's save an input from the command line. First we want to create a variable to assign the command line input to. Let's call the variable `word` and make it a string.
 
 ```go
 
