@@ -182,7 +182,8 @@ func getWeather(zipcodes []string) []*WeatherResponse {
 	for _, zipCode := range zipcodes {
 		go func(zipCode string) {
 			response, err := http.Get(fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?zip=%v,us&units=imperial", zipCode))
-			ch <- &WeatherResponse{response, err}
+			wr := &WeatherResponse{response, err}
+            ch <- wr
 		}(zipCode)
 	}
 
@@ -261,7 +262,8 @@ func getWeather(zipcodes []string) []*WeatherResponse {
 	for _, zipCode := range zipcodes {
 		go func(zipCode string) {
 			response, err := http.Get(fmt.Sprintf("http://api.openweathermap.org/data/2.5/weather?zip=%v,us&units=imperial", zipCode))
-			ch <- &WeatherResponse{response, err}
+			wr := &WeatherResponse{response, err}
+            ch <- wr
 		}(zipCode)
 	}
 
