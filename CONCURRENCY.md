@@ -242,7 +242,14 @@ type WeatherResponse struct {
 func main() {
 	responses := getWeather(zipcodes)
 	for _, resp := range responses {
-		fmt.Println("resp", resp.HTTPResponse)
+		defer resp.HTTPResponse.Body.Close()
+		body, err := ioutil.ReadAll(resp.HTTPResponse.Body)
+		if err != nil {
+			fmt.Println("err", err)
+		}
+
+		fmt.Println("Weather Data", string(body))
+		}
 	}
 }
 
