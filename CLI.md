@@ -1,3 +1,6 @@
+## Build a Mad Lib program in Go!
+
+
 To get a little more comfortable writing and running programs in Go here's an example on how to build a small madlib program using the command line
 
 First create a file and name it `madlib.go` 
