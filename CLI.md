@@ -46,12 +46,12 @@ func main() {
 	fmt.Println("Give me a word!: ")
 	fmt.Scanln(&word)
 
-	fmt.Println("The word that was inputed was: ", word)
+	fmt.Println("The word that was inputted was: ", word)
 }
 
 ```
 
-Now if you run the program you should be able to see what was inputed into the command line.
+Now if you run the program you should be able to see what was inputted into the command line.
 
 Great! Now that you know how to save a command line input into a variable as well as print out that variable we can make our mad lib program.
 
