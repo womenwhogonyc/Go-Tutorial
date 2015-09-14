@@ -17,3 +17,9 @@ Learn how to spin up a web server and how to route incoming requests.
 ### [Basic Concurrency](CONCURRENCY.md)
 
 See a couple of basic concurrency patterns.
+
+### [Resources](RESOURCES.md)
+
+Some Golang resources and other tutorials.
+
+
